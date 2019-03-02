@@ -11,4 +11,8 @@ git init⇒管理したいディレクトリに移動してから
 git add README.md⇒これは必要無いかも
 git commit -m "first commit"
 git remote add origin https://github.com/saekishin/Vue_app.git
+
+//↓間違ってmasterを入れてしまった
+git remote add origin master https://github.com/saekishin/Vue_app.git
+
 git push -u origin master
