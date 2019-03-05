@@ -21,10 +21,13 @@
       <li v-for="todo in todos">{{ todo }}</li>
     </ul>
 <!--  
-v-onでaddItemに対しデsubmitアクションのデータを送信してくれる。という意味か？
-<form v-on:submit='addItem'> 
+v-onで、submit時、addItemアクションを起こしてくれる。という意味
+<form v-on:submit="addItem"> 
+↑ダブルクォーテーションに注意
+v-onはよく使用するので@で代替することができる。
 -->
-      <input type="text">
+    <form @submit="addItem">
+    <input type="text">
       <!-- value=Addてなんだ⇒表示上の文字列だった-->
       <input type="submit" value="Add">
     </form>
