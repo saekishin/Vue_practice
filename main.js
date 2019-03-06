@@ -15,7 +15,7 @@
     },
     
     methods: {
-      //eはなんだ？　preventDfaultが無くてもできるのか？　
+      //eはなんだ？　preventDfaultが無くてもできるのか？⇒htmlのディレクティブにpreventを付けてあげることで可能　
       //addItem: function(e) {
       //e.preventDefault();
       //this.todos.push(this.newItem);
