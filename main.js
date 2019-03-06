@@ -1,12 +1,13 @@
 (function() {
   'use strict';
 
-//aa
+
   var vm = new Vue({
-//aa
+
    el: '#app',
-//aa
+
     data: {
+//newItemが定義されてなかった
       todos: [
         'task 1',
         'task 2',
