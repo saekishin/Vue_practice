@@ -26,8 +26,10 @@ v-onで、submit時、addItemアクションを起こしてくれる。という
 ↑ダブルクォーテーションに注意
 v-onはよく使用するので@で代替することができる。
 -->
-    <form @submit="addItem">
-    <input type="text">
+<!-- .preventを付けてやることでページ遷移をキャンセル-->
+    <form @submit.prevent="addItem">
+    <input type="text" v-model="newItem">
+      <!-- ↑v-modelで、JSのnewItemに-->
       <!-- value=Addてなんだ⇒表示上の文字列だった-->
       <input type="submit" value="Add">
     </form>
