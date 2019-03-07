@@ -11,9 +11,17 @@
 //newItemが定義されてなかった。空欄にしとく
       newItem: '',
       todos: [
-        'task 1',
-        'task 2',
+        {
+        'task 1'
+        },
+        
+        {
+        'task 2'
+        },
+        
+        {
         'task 3'
+        }
       ]
     },
     
