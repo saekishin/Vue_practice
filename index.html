@@ -11,6 +11,7 @@
 <!-- containerに対しCSS,appに対しJSを当てている -->
   <div id="app" class='container'>
     <h1>俺のtodos</h1>
+    
     <ul>
 <!-- {{ JSの【data】を入れることができる }}　ループにするのでコメントアウト
       <li>{{ todos[0] }}</li>
@@ -18,7 +19,12 @@
       <li>{{ todos[2] }}</li> -->
       
       <!-- v-for=変数 in データ（配列）でループ処理-->
-      <li v-for="todo in todos">{{ todo }}</li>
+      <!-- 削除用にindexを追加した配列に変更-->
+      <li v-for="(todo, index) in todos">
+        {{ todo }}
+      <!-- indexを指定して、deleteItemメソッドを処理-->
+        <span @click="deleteItem(index)" class="command">[x]</span>
+      </li>
     </ul>
 <!--  
 v-onで、submit時、addItemアクションを起こしてくれる。という意味
@@ -28,14 +34,14 @@ v-onはよく使用するので@で代替することができる。
 -->
 <!-- .preventを付けてやることでページ遷移をキャンセル-->
     <form @submit.prevent="addItem">
-    <input type="text" v-model="newItem">
+      <input type="text" v-model="newItem">
       <!-- ↑v-modelで、JSのnewItemに-->
       <!-- value=Addてなんだ⇒表示上の文字列だった-->
       <input type="submit" value="Add">
     </form>
   </div>
 
-//https://jp.vuejs.org/v2/guide/よりCDNをコピペする
+<!-- https://jp.vuejs.org/v2/guide/よりCDNをコピペする -->
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="./main.js"></script>
 </body>
