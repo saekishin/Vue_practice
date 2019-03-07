@@ -5,24 +5,32 @@ body {
 
 .container {
   width: 300px;
-//
+
   margin: auto;
 }
 
 #app h1 {
   font-size: 16px;
-//
+
   border-bottom: 1px solid #ddd;
   padding: 16px 0;
 }
 
 #app li {
-//
+
   line-height: 1.5;
 }
 
 
-//
+
 #app input[type="text"] {
   padding: 2px;
+}
+
+//classがcommand
+.command {
+  font-size: 12px;
+//ポインタ以外のカーソルガあるのか？
+  cursor: pointer;
+  color: #08c;
 }
