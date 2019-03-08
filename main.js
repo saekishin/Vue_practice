@@ -60,7 +60,7 @@
    //confirmで確認ポップアップを出現させる（コメントは自由に設定できる）※ポップアップの見た目もいじる方法がある。
       if (confirm('are you sure?')) {
    //spliceで削除できる　1ってなんだっけ？
-        this.todos.splice(index.1); 
+        this.todos.splice(index, 1); 
       }
       
    //↓deleteItemの閉じ
