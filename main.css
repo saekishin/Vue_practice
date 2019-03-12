@@ -5,19 +5,16 @@ body {
 
 .container {
   width: 300px;
-
   margin: auto;
 }
 
 #app h1 {
   font-size: 16px;
-
   border-bottom: 1px solid #ddd;
   padding: 16px 0;
 }
 
 #app li {
-
   line-height: 1.5;
 }
 
@@ -27,10 +24,37 @@ body {
   padding: 2px;
 }
 
-//classがcommand
+
 .command {
   font-size: 12px;
-//ポインタ以外のカーソルガあるのか？
+  /*カーソルが当たっているときはポインターにする*/
   cursor: pointer;
   color: #08c;
+}
+
+
+
+#app ul {
+  padding: 0;
+  /*リストの・を無くす*/
+  list-style: none;
+}
+
+
+#app li > span.done {
+  /* */
+  text-decoration: line-through;
+  color: #bbb;
+  
+}
+
+.info {
+ color: #bbb; 
+ font-size: 12px;
+ font-weight: normal;
+}
+
+
+#app h1 > button {
+ float: right; 
 }

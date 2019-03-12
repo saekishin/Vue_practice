@@ -11,23 +11,55 @@
 //newItemが定義されてなかった。空欄にしとく
       newItem: '',
 //todoを配列にする⇒isDone：完了タスク
-      todos: [
-        {
-          title: 'task 1',
-          isDone: false
-        },
+      //todos: [
+        //{
+          //title: 'task 1',
+          //isDone: false
+        //},
         
-        {
-          title: 'task 2',
-          isDone: false
-        },
+        //{
+          //title: 'task 2',
+          //isDone: false
+        //},
         
-        {
-          title: 'task 3',
-          isDone: true
-        }
-      ]
+        //{
+          //title: 'task 3',
+          //isDone: true
+        //}
+      //]
+      
+      //最初は空の配列を設置する
+      todos: []
     },
+    
+    /*
+    watchでデータ保存機能追加
+    setItem(名称、値)
+    stringfy(値)
+    */
+    watch: {
+    /*
+    todos（データ）を監視してくれる
+    但し、todosの配列個数に変更があった時だけで、内容の変更には対応してない
+    */
+      /*todos: function() {
+      localStorage.setItem('todos', JSON.stringify(this.todos));
+      alert('保存しました')
+      }*/
+      
+      todos: {
+    //handler↓というメソッドを使用する
+        handler: function() {
+      localStorage.setItem('todos', JSON.stringify(this.todos));
+      
+    //邪魔なので消しとく↓
+    alert('保存しました')
+      },
+      
+    //deepオプションとはなんだ？
+      deep: true
+    }
+  },
     
     methods: {
       //eはなんだ？　preventDfaultが無くてもできるのか？⇒htmlのディレクティブにpreventを付けてあげることで可能　
@@ -64,10 +96,41 @@
       }
       
    //↓deleteItemの閉じ
-    }
+    },
       
-    //methodsの閉じ
+    purge: function() {
+      if (!confirm('完了済を削除?')) {
+        return;
+      }
+      
+  //未完了タスクのみに変更する
+      /*this.todos = this.todos.filter(function(todo) {
+        return !todo.isDone;
+      });*/
+      
+  //長いので定数にしとくremaining：
+      this.todos = this.remaining;
+      
+    }
+  },
+  
+  computed: {
+    remaining: function() {
+    //filterってどんな機能？
+      /*var items = this.todos.filter(function(todo) {
+    //件数を返す
+        return !todo.isDone;
+      });
+    //なにこれ↓
+      return items.length;*/
+      
+      return this.todos.filter(function(todo) {
+        return !todo.isDone;
+      });
+    }
   }
+    
+  
 //new Vueの閉じ
   });
   
