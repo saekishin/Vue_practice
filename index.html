@@ -4,13 +4,24 @@
   <meta charset="UTF-8">
   <title>Vue practice</title>
   
-//cssのリンク先ファイルの指定
   <link rel="stylesheet" href="./main.css">
 </head>
 <body>
 <!-- containerに対しCSS,appに対しJSを当てている -->
   <div id="app" class='container'>
-    <h1>私のtodos</h1>
+    <h1>
+      
+<!--
+削除ボタンを作成
+@はv-onなので、clickでpurgeメソッドを呼び出す
+-->
+      <button @click="purge">すべて削除</button>
+      私のtodos
+      
+<!-- remainingをlength->データに変更したのでremaining.lengthに変更-->
+    <span class="info">({{ remaining.length }}/{{ todos.length }})</span>  
+      
+    </h1>
     
     <ul>
 <!-- {{ JSの【data】を入れることができる }}　ループにするのでコメントアウト
@@ -18,13 +29,32 @@
       <li>{{ todos[1] }}</li>
       <li>{{ todos[2] }}</li> -->
       
+      
+      <!-- ulで囲まれた範囲がifの処理なのでendが無い-->
+      <ul v-if="todos.length">
+      
       <!-- v-for=変数 in データ（配列）でループ処理-->
       <!-- 削除用にindexを追加した配列に変更-->
       <li v-for="(todo, index) in todos">
-        {{ todo.title }}
+        
+      <!-- 
+      完了状態をチェックボックス(isDone)と関連付ける。
+      todo.isDoneがtrueの時はチェックボックスにチェックが入る
+      -->
+        <input type="checkbox" v-model="todo.isDone">
+      
+      <!-- v-bindの使い方 以下のように書き換えもできる-->
+      <!-- <span v-bind:class="{done: todo,isDone}" >{{ todo.title }}</span> -->
+      <!-- ,と.を間違えたので修正済 -->
+        <span :class="{done: todo.isDone}" >{{ todo.title }}</span>
+        
       <!-- indexを指定して、deleteItemメソッドを処理-->
         <span @click="deleteItem(index)" class="command">[x]</span>
       </li>
+    </ul>
+    
+    <ul v-else>
+      <li>TODOがありません</li>
     </ul>
 <!--  
 v-onで、submit時、addItemアクションを起こしてくれる。という意味

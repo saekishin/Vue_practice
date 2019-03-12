@@ -16,3 +16,18 @@ git remote add origin https://github.com/saekishin/Vue_app.git
 git remote add origin master https://github.com/saekishin/Vue_app.git
 
 git push -u origin master
+
+-------------------------------------------------------------------------
+【gitからクローン、編集、プッシュの流れ】
+クローンしてプッシュするまでの流れ
+git clone URL
+cd フォルダ
+git init 
+git branch ブランチ名
+git checkout ブランチ名
+編集
+git add .
+git commit -m ""
+git remote add URL（不要かもしれない）⇒不要だった
+git push origin ブランチ名
+ここでいったんフォルダ削除しても良い
