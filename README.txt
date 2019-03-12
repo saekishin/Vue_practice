@@ -17,7 +17,7 @@ git remote add origin master https://github.com/saekishin/Vue_app.git
 
 git push -u origin master
 
--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 【gitからクローン、編集、プッシュの流れ】
 クローンしてプッシュするまでの流れ
 git clone URL

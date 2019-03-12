@@ -53,13 +53,20 @@
       localStorage.setItem('todos', JSON.stringify(this.todos));
       
     //邪魔なので消しとく↓
-    alert('保存しました')
+    //alert('保存しました')
       },
       
     //deepオプションとはなんだ？
       deep: true
     }
   },
+    
+    //マウントされたタイミングで処理
+    mounted: function() {
+    //todosが空の場合の処理も書く
+      this.todos = JSON.parse(localStorage.getItem('todos')) || [];
+    },
+    
     
     methods: {
       //eはなんだ？　preventDfaultが無くてもできるのか？⇒htmlのディレクティブにpreventを付けてあげることで可能　

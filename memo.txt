@@ -1,2 +1,9 @@
-v-on v-for はディレクティブと呼ぶ
+v-on
+v-for
+
+はディレクティブと呼ぶ
+
+localstorageにデータが入っているかを確認するには
+デベロッパーツールから
+検証⇒application⇒localstorageで確認できる
 
