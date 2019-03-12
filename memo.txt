@@ -1,9 +1,11 @@
+いったん完了
+
+◆ディレクティブ
 v-on
 v-for
+などの説明ができるように復習する
 
-はディレクティブと呼ぶ
-
-localstorageにデータが入っているかを確認するには
+◆localstorageにデータが入っているかを確認するには
 デベロッパーツールから
 検証⇒application⇒localstorageで確認できる
 
